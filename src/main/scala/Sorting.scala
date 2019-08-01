@@ -2,10 +2,6 @@ import scala.util.Random
 
 object Sorting extends App {
 
-  val numbers = List.fill(10)(Random.nextInt(9))
-
-  println(numbers.mkString(","))
-
   def mergeSort(l: List[Int]): List[Int] = {
     val mid = l.length / 2
     if (mid == 0 ) l
@@ -33,20 +29,10 @@ object Sorting extends App {
     }
   }
 
-  def countingSort(l: List[Int], max: Int): List[Int] = {
-    val existingNumbers = Array.fill(max)(false)
-
-    l foreach { index =>
-      existingNumbers(index-1) = true
-    }
-
-    (for {
-      (exists, value) <- existingNumbers.zipWithIndex
-      if exists
-    } yield value + 1).toList
-  }
-
+  val numbers = List.fill(10)(Random.nextInt(9))
+  println(numbers.mkString(","))
   println(mergeSort(numbers) mkString(","))
   println(quickSort(numbers) mkString(","))
+
 
 }

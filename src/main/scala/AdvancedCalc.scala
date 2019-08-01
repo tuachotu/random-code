@@ -8,11 +8,12 @@ object AdvancedCalc extends App {
   // TODO: handle for spaces
   // TODO: How to handle -ve numbers
 
-  // takes a expression without parens , gives result
+  // takes a expression without parens , gives result''
+  //a-b+c*d/2
   def evaluateString(s: String) = {
     if (s.isEmpty) 0 else {
-      (s.split("-") map { subs =>
-        (subs.split("\\+") map { adds =>
+      (s.split("-") map { subs => //a , b+c*d/2
+        (subs.split("\\+") map { adds => //a b c*d/2
           (adds.split("/") map { divs =>
             divs.split("\\*").map(_.toInt).product
           }).reduceLeft { (left, right) => left / right }
